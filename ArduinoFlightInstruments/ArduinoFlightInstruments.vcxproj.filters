@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Arduino">
+      <UniqueIdentifier>{04bfd96d-17cf-4ae0-9cba-39233546d217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{a53321ab-595a-4197-b954-51b6f3729941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools">
+      <UniqueIdentifier>{e673a24e-de5b-4f09-a628-e2a1f83c274c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SimConnect">
+      <UniqueIdentifier>{1317b5a7-bd2a-4031-9469-1f2ebd27ad71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Arduino">
+      <UniqueIdentifier>{70a027e8-2fed-43df-92ec-b6380fdf4d71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{6e4a5b58-3884-435f-95ea-3eea4a600ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SimConnect">
+      <UniqueIdentifier>{0be0fbf3-ad83-4965-8f07-e29770e20443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools">
+      <UniqueIdentifier>{4d4e003c-d88b-40ba-8db4-47ab54ffed82}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Tools\MathTools.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tools\StringTools.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SimConnect\SimConnectMonitor.cpp">
+      <Filter>Source Files\SimConnect</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\FlightInstrumentsProgram.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Core\InstrumentsPanel.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\ArduinoSerial.cpp">
+      <Filter>Source Files\Arduino</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\ArduinoPackageFactory.cpp">
+      <Filter>Source Files\Arduino</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Tools\MathTools.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tools\StringTools.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SimConnect\SimConnectMonitor.h">
+      <Filter>Header Files\SimConnect</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\FlightInstrumentsProgram.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Core\InstrumentsPanel.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\ArduinoSerial.h">
+      <Filter>Header Files\Arduino</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\ArduinoPackageFactory.h">
+      <Filter>Header Files\Arduino</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
