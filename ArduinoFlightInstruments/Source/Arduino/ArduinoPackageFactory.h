@@ -10,26 +10,10 @@
 
 #define ARDUINO_RESET_DELAY 2000
 
-class ArduinoSerial
+class ArduinoPackageFactory
 {
 public:
-    ~ArduinoSerial();
-
-    // To open and close a connection
-    bool Connect(std::string const& portName);
-    void Disconnect();
-
-    // To read and write data on the arduino serial comm
-    int ReadData(char* buffer, DWORD const maxCharsToRead);
-    bool WriteData(char const* buffer, DWORD const charsToWrite);
-
-    // Getters
-    inline bool IsConnected() { return m_connected; }
 
 private:
-    HANDLE m_serialHandle;
-    COMSTAT m_status;
-    DWORD m_errors;
 
-    bool m_connected = false;
 };
