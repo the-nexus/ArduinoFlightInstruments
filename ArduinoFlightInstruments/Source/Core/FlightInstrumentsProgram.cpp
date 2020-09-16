@@ -38,6 +38,7 @@ void FlightInstrumentsProgram::PreLoad()
 void FlightInstrumentsProgram::Load()
 {
     m_instrumentsPanels.push_back(new InstrumentsPanel());
+    m_instrumentsPanels[0]->Load("COM4");
 }
 
 void FlightInstrumentsProgram::PostLoad()
@@ -58,9 +59,9 @@ void FlightInstrumentsProgram::PreUnload()
 
 void FlightInstrumentsProgram::Unload()
 {
-    for (InstrumentsPanel* instrumentsPanel : m_instrumentsPanels)
+    for (InstrumentsPanel* panel : m_instrumentsPanels)
     {
-        delete instrumentsPanel;
+        delete panel;
     }
     m_instrumentsPanels.clear();
 }
@@ -76,13 +77,8 @@ void FlightInstrumentsProgram::PostUnload()
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 void FlightInstrumentsProgram::Loop()
 {
-    std::string command;
-    std::cin >> command;
-
-    std::cout << "Command: " << command << std::endl;
-
-    if (command.compare("exit"))
+    for (InstrumentsPanel* panel : m_instrumentsPanels)
     {
-        m_running = false;
+        panel->Loop();
     }
 }

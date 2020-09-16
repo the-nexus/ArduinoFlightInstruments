@@ -104,16 +104,16 @@ void ArduinoSerial::Disconnect()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-int ArduinoSerial::ReadData(char* buffer, DWORD const maxCharsToRead)
+int ArduinoSerial::ReadBytes(void* byteBuffer, DWORD const maxBytesToRead) const
 {
     ClearCommError(m_serialHandle, &m_errors, &m_status);
 
-    DWORD const availableCharsToRead = m_status.cbInQue;
-    if (availableCharsToRead > 0)
+    DWORD const availableBytesToRead = m_status.cbInQue;
+    if (availableBytesToRead > 0)
     {
         DWORD bytesRead;
-        DWORD const charsToRead = MathTools::Min(availableCharsToRead, maxCharsToRead);
-        if (ReadFile(m_serialHandle, buffer, charsToRead, &bytesRead, NULL))
+        DWORD const bytesToRead = MathTools::Min(availableBytesToRead, maxBytesToRead);
+        if (ReadFile(m_serialHandle, byteBuffer, bytesToRead, &bytesRead, NULL))
         {
             return bytesRead;
         }
@@ -121,10 +121,10 @@ int ArduinoSerial::ReadData(char* buffer, DWORD const maxCharsToRead)
     return 0;
 }
 
-bool ArduinoSerial::WriteData(char const* buffer, DWORD const charsToWrite)
+bool ArduinoSerial::WriteBytes(void const* byteBuffer, DWORD const bytesToWrite)
 {
     DWORD bytesWritten;
-    if (WriteFile(m_serialHandle, (void*)buffer, charsToWrite, &bytesWritten, NULL))
+    if (WriteFile(m_serialHandle, byteBuffer, bytesToWrite, &bytesWritten, NULL))
     {
         return true;
     }

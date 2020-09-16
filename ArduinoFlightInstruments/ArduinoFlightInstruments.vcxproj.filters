@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Tools">
       <UniqueIdentifier>{4d4e003c-d88b-40ba-8db4-47ab54ffed82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Arduino\Components">
+      <UniqueIdentifier>{4b56afc1-5303-4779-863d-5421ebbb3508}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Arduino\Components">
+      <UniqueIdentifier>{8bf4f87e-6c03-441d-9216-0b156e19f393}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Tools\MathTools.cpp">
@@ -60,8 +66,17 @@
     <ClCompile Include="Source\Arduino\ArduinoSerial.cpp">
       <Filter>Source Files\Arduino</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Arduino\ArduinoPackageFactory.cpp">
+    <ClCompile Include="Source\Arduino\ArduinoCommunicator.cpp">
       <Filter>Source Files\Arduino</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\ArduinoDefinitions.cpp">
+      <Filter>Source Files\Arduino</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\Components\ArduinoComponent.cpp">
+      <Filter>Source Files\Arduino\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\Components\ArduinoComponentFactory.cpp">
+      <Filter>Source Files\Arduino\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -83,8 +98,17 @@
     <ClInclude Include="Source\Arduino\ArduinoSerial.h">
       <Filter>Header Files\Arduino</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Arduino\ArduinoPackageFactory.h">
+    <ClInclude Include="Source\Arduino\ArduinoCommunicator.h">
       <Filter>Header Files\Arduino</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\ArduinoDefinitions.h">
+      <Filter>Header Files\Arduino</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\Components\ArduinoComponent.h">
+      <Filter>Header Files\Arduino\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\Components\ArduinoComponentFactory.h">
+      <Filter>Header Files\Arduino\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

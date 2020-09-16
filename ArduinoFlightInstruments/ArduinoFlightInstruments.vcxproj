@@ -19,8 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Arduino\ArduinoPackageFactory.cpp" />
+    <ClCompile Include="Source\Arduino\ArduinoCommunicator.cpp" />
+    <ClCompile Include="Source\Arduino\ArduinoDefinitions.cpp" />
     <ClCompile Include="Source\Arduino\ArduinoSerial.cpp" />
+    <ClCompile Include="Source\Arduino\Components\ArduinoComponent.cpp" />
+    <ClCompile Include="Source\Arduino\Components\ArduinoComponentFactory.cpp" />
     <ClCompile Include="Source\Core\FlightInstrumentsProgram.cpp" />
     <ClCompile Include="Source\Core\InstrumentsPanel.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -29,8 +32,11 @@
     <ClCompile Include="Source\Tools\StringTools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Arduino\ArduinoPackageFactory.h" />
+    <ClInclude Include="Source\Arduino\ArduinoCommunicator.h" />
+    <ClInclude Include="Source\Arduino\ArduinoDefinitions.h" />
     <ClInclude Include="Source\Arduino\ArduinoSerial.h" />
+    <ClInclude Include="Source\Arduino\Components\ArduinoComponent.h" />
+    <ClInclude Include="Source\Arduino\Components\ArduinoComponentFactory.h" />
     <ClInclude Include="Source\Core\FlightInstrumentsProgram.h" />
     <ClInclude Include="Source\Core\InstrumentsPanel.h" />
     <ClInclude Include="Source\SimConnect\SimConnectMonitor.h" />

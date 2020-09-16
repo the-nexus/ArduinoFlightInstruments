@@ -3,8 +3,6 @@
 
 #pragma once
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
 #include <windows.h>
 
@@ -20,16 +18,17 @@ public:
     void Disconnect();
 
     // To read and write data on the arduino serial comm
-    int ReadData(char* buffer, DWORD const maxCharsToRead);
-    bool WriteData(char const* buffer, DWORD const charsToWrite);
+    int ReadBytes(void* byteBuffer, DWORD const maxBytesToRead) const;
+    bool WriteBytes(void const* byteBuffer, DWORD const bytesToWrite);
 
     // Getters
-    inline bool IsConnected() { return m_connected; }
+    inline bool IsConnected() const { return m_connected; }
+    inline bool HasErrors() const { return m_errors > 0; }
 
 private:
     HANDLE m_serialHandle;
-    COMSTAT m_status;
-    DWORD m_errors;
+    mutable COMSTAT m_status;
+    mutable DWORD m_errors;
 
     bool m_connected = false;
 };
