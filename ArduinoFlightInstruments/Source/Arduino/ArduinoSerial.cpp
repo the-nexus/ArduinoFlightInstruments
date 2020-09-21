@@ -104,15 +104,20 @@ void ArduinoSerial::Disconnect()
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-int ArduinoSerial::ReadBytes(void* byteBuffer, DWORD const maxBytesToRead) const
+bool ArduinoSerial::HasBytes() const
 {
     ClearCommError(m_serialHandle, &m_errors, &m_status);
+    return m_status.cbInQue > 0;
+}
 
-    DWORD const availableBytesToRead = m_status.cbInQue;
-    if (availableBytesToRead > 0)
+int ArduinoSerial::ReadBytes(void* byteBuffer, DWORD const maxBytesToRead) const
+{
+    if (HasBytes())
     {
-        DWORD bytesRead;
+        DWORD const availableBytesToRead = m_status.cbInQue;
         DWORD const bytesToRead = MathTools::Min(availableBytesToRead, maxBytesToRead);
+
+        DWORD bytesRead;
         if (ReadFile(m_serialHandle, byteBuffer, bytesToRead, &bytesRead, NULL))
         {
             return bytesRead;

@@ -1,5 +1,8 @@
 #pragma once
 #include "../Program.h"
+#include <vector>
+#include <string>
+#include "ArduinoSerial.h"
 
 class ArduinoTestProgram : public IProgram
 {
@@ -12,4 +15,6 @@ public:
 
 private:
     bool m_running = false;
+    ArduinoSerial m_serial;
+    std::vector<std::string> m_commands;
 };

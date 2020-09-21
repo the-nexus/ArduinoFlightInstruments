@@ -14,7 +14,7 @@
 
 
 // EDIT HERE! This line selects the program class that will be executed
-#define PROGRAM_CLASS SimConnectTestProgram
+#define PROGRAM_CLASS ArduinoTestProgram
 
 
 

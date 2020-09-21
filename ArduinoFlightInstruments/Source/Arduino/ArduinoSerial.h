@@ -18,6 +18,7 @@ public:
     void Disconnect();
 
     // To read and write data on the arduino serial comm
+    bool HasBytes() const;
     int ReadBytes(void* byteBuffer, DWORD const maxBytesToRead) const;
     bool WriteBytes(void const* byteBuffer, DWORD const bytesToWrite);
 
