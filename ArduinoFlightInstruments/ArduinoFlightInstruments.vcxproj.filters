@@ -43,6 +43,12 @@
     <Filter Include="Header Files\Arduino\Components">
       <UniqueIdentifier>{8bf4f87e-6c03-441d-9216-0b156e19f393}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Arduino\Commands">
+      <UniqueIdentifier>{0465cc6c-41ed-48f7-a4a7-291cc55575b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Arduino\Commands">
+      <UniqueIdentifier>{1847413d-0df0-4dba-8262-d959de6a6bf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Tools\MathTools.cpp">
@@ -66,9 +72,6 @@
     <ClCompile Include="Source\Arduino\ArduinoSerial.cpp">
       <Filter>Source Files\Arduino</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Arduino\ArduinoCommunicator.cpp">
-      <Filter>Source Files\Arduino</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Arduino\ArduinoDefinitions.cpp">
       <Filter>Source Files\Arduino</Filter>
     </ClCompile>
@@ -77,6 +80,24 @@
     </ClCompile>
     <ClCompile Include="Source\Arduino\Components\ArduinoComponentFactory.cpp">
       <Filter>Source Files\Arduino\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\ArduinoCommunicationManager.cpp">
+      <Filter>Source Files\Arduino</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\Commands\ArduinoCommand.cpp">
+      <Filter>Source Files\Arduino\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\Commands\ArduinoCommandFactory.cpp">
+      <Filter>Source Files\Arduino\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\Commands\ArduinoCommandHandshake.cpp">
+      <Filter>Source Files\Arduino\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Arduino\ArduinoTestProgram.cpp">
+      <Filter>Source Files\Arduino</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SimConnect\SimConnectTestProgram.cpp">
+      <Filter>Source Files\SimConnect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,17 +119,35 @@
     <ClInclude Include="Source\Arduino\ArduinoSerial.h">
       <Filter>Header Files\Arduino</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Arduino\ArduinoCommunicator.h">
-      <Filter>Header Files\Arduino</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Arduino\ArduinoDefinitions.h">
       <Filter>Header Files\Arduino</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\Components\ArduinoComponentFactory.h">
+      <Filter>Header Files\Arduino\Components</Filter>
     </ClInclude>
     <ClInclude Include="Source\Arduino\Components\ArduinoComponent.h">
       <Filter>Header Files\Arduino\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Arduino\Components\ArduinoComponentFactory.h">
-      <Filter>Header Files\Arduino\Components</Filter>
+    <ClInclude Include="Source\Arduino\ArduinoCommunicationManager.h">
+      <Filter>Header Files\Arduino</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\Commands\ArduinoCommand.h">
+      <Filter>Header Files\Arduino\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\Commands\ArduinoCommandFactory.h">
+      <Filter>Header Files\Arduino\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\Commands\ArduinoCommandHandshake.h">
+      <Filter>Header Files\Arduino\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Program.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Arduino\ArduinoTestProgram.h">
+      <Filter>Header Files\Arduino</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SimConnect\SimConnectTestProgram.h">
+      <Filter>Header Files\SimConnect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

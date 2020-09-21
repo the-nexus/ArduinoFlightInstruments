@@ -19,27 +19,38 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Arduino\ArduinoCommunicator.cpp" />
+    <ClCompile Include="Source\Arduino\ArduinoCommunicationManager.cpp" />
     <ClCompile Include="Source\Arduino\ArduinoDefinitions.cpp" />
     <ClCompile Include="Source\Arduino\ArduinoSerial.cpp" />
+    <ClCompile Include="Source\Arduino\ArduinoTestProgram.cpp" />
+    <ClCompile Include="Source\Arduino\Commands\ArduinoCommand.cpp" />
+    <ClCompile Include="Source\Arduino\Commands\ArduinoCommandFactory.cpp" />
+    <ClCompile Include="Source\Arduino\Commands\ArduinoCommandHandshake.cpp" />
     <ClCompile Include="Source\Arduino\Components\ArduinoComponent.cpp" />
     <ClCompile Include="Source\Arduino\Components\ArduinoComponentFactory.cpp" />
     <ClCompile Include="Source\Core\FlightInstrumentsProgram.cpp" />
     <ClCompile Include="Source\Core\InstrumentsPanel.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\SimConnect\SimConnectMonitor.cpp" />
+    <ClCompile Include="Source\SimConnect\SimConnectTestProgram.cpp" />
     <ClCompile Include="Source\Tools\MathTools.cpp" />
     <ClCompile Include="Source\Tools\StringTools.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Arduino\ArduinoCommunicator.h" />
+    <ClInclude Include="Source\Arduino\ArduinoCommunicationManager.h" />
     <ClInclude Include="Source\Arduino\ArduinoDefinitions.h" />
     <ClInclude Include="Source\Arduino\ArduinoSerial.h" />
+    <ClInclude Include="Source\Arduino\ArduinoTestProgram.h" />
+    <ClInclude Include="Source\Arduino\Commands\ArduinoCommand.h" />
+    <ClInclude Include="Source\Arduino\Commands\ArduinoCommandFactory.h" />
+    <ClInclude Include="Source\Arduino\Commands\ArduinoCommandHandshake.h" />
     <ClInclude Include="Source\Arduino\Components\ArduinoComponent.h" />
     <ClInclude Include="Source\Arduino\Components\ArduinoComponentFactory.h" />
     <ClInclude Include="Source\Core\FlightInstrumentsProgram.h" />
     <ClInclude Include="Source\Core\InstrumentsPanel.h" />
+    <ClInclude Include="Source\Program.h" />
     <ClInclude Include="Source\SimConnect\SimConnectMonitor.h" />
+    <ClInclude Include="Source\SimConnect\SimConnectTestProgram.h" />
     <ClInclude Include="Source\Tools\MathTools.h" />
     <ClInclude Include="Source\Tools\StringTools.h" />
   </ItemGroup>
@@ -131,11 +142,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(MSFS_SDK)\SimConnect SDK\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(MSFS_SDK)\SimConnect SDK\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SimConnect.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /D /Y "$(MSFS_SDK)SimConnect SDK\lib\SimConnect.dll" $(TargetDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

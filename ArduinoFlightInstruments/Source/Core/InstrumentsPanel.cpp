@@ -3,63 +3,36 @@
 #include <iomanip>
 #include <iostream>
 #include "../Arduino/ArduinoDefinitions.h"
-#include "../Arduino/ArduinoCommunicator.h"
-#include "../Arduino/ArduinoSerial.h"
+#include "../Arduino/ArduinoCommunicationManager.h"
 #include "../Arduino/Components/ArduinoComponent.h"
 
 
 
 InstrumentsPanel::InstrumentsPanel()
 {
-    m_serial = new ArduinoSerial();
+
 }
 
 InstrumentsPanel::~InstrumentsPanel()
 {
     DestroyComponents();
-    delete m_serial;
 }
 
 void InstrumentsPanel::Load(std::string const& portName)
 {
-    m_serial->Connect(portName);
+    m_arduino->Load(this);
+    m_arduino->Connect(portName);
 }
 
 void InstrumentsPanel::Unload()
 {
-    m_serial->Disconnect();
+    m_arduino->Disconnect();
     DestroyComponents();
 }
 
-void InstrumentsPanel::Loop()
+void InstrumentsPanel::Update()
 {
-    if (m_serial->IsConnected())
-    {
-        if (m_serial->HasErrors())
-        {
-            m_serial->Disconnect();
-            return;
-        }
-
-        BYTE bytecodeVal;
-        if (m_serial->ReadBytes(&bytecodeVal, 1) > 0)
-        {
-            ArduinoBytecodeType const bytecode = static_cast<ArduinoBytecodeType>(bytecodeVal);
-            switch (bytecode)
-            {
-            case ArduinoBytecodeType::Handshake:
-                DestroyComponents();
-                ArduinoCommunicator::HandleSerial_Handshake(m_serial, m_inputComponents, m_inputComponentCount, m_outputComponents, m_outputComponentCount);
-                break;
-
-            default:
-                break;
-            }
-        }
-
-        PrintDataToConsole();
-    }
-
+    m_arduino->Update();
 }
 
 void InstrumentsPanel::DestroyComponents()

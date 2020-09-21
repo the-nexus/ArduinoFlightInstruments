@@ -3,12 +3,13 @@
 #define ARDUINO_LOW = 0;
 #define ARDUINO_HIGH = 255;
 
-enum class ArduinoBytecodeType
+enum class ArduinoCommandType
 {
-    Handshake = 0,
-    Acknowledge = 1,
-    UpdateInputData = 2,
-    UpdateOutputData = 3
+    Invalid = 0,
+    Handshake = 1,
+    Acknowledge = 2,
+    UpdateInputData = 3,
+    UpdateOutputData = 4
 };
 
 enum class ArduinoComponentType

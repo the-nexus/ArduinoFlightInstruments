@@ -26,11 +26,11 @@ unsigned long const DEBOUNCE_DELAY = 50; // ms
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Serial
-byte const BYTECODE_HANDSHAKE = 0;
-byte const BYTECODE_ACKNOWLEDGE = 1;
-byte const BYTECODE_UPDATE_INPUT_DATA = 2;
-byte const BYTECODE_UPDATE_OUTPUT_DATA = 3;
-byte const BYTECODE_INVALID = 255;
+byte const BYTECODE_INVALID = 0
+byte const BYTECODE_HANDSHAKE = 1;
+byte const BYTECODE_ACKNOWLEDGE = 2;
+byte const BYTECODE_UPDATE_INPUT_DATA = 3;
+byte const BYTECODE_UPDATE_OUTPUT_DATA = 4;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,11 +111,6 @@ void SetupSerial()
   // Serial
   Serial.begin(9600);
   HandleSerial_Handshake();
-  while (Serial.peek() != BYTECODE_HANDSHAKE)
-  {
-    // Do nothing
-  }
-  HandleSerial_Acknowledge();
 }
 
 void UpdateSerial()
@@ -138,7 +133,7 @@ void UpdateSerial()
 
 void HandleSerial_Handshake()
 {
-  unsigned int const HANDSHAKE_BYTE_SIZE = 3 + INPUT_DATA_SIZE + OUTPUT_DATA_SIZE;
+  unsigned int const HANDSHAKE_BYTE_SIZE = 4 + INPUT_DATA_SIZE + OUTPUT_DATA_SIZE;
   unsigned int currentBytePos = 0;
   
   byte bytesToSend[HANDSHAKE_BYTE_SIZE];
@@ -162,11 +157,6 @@ void HandleSerial_Acknowledge()
 {
   Serial.flush();
   Serial.write(BYTECODE_ACKNOWLEDGE);
-}
-
-void HandleSerial_UpdateInputs()
-{
-  
 }
 
 void HandleSerial_UpdateOutputs()

@@ -2,6 +2,7 @@
 
 #include <string>
 
+class ArduinoCommunicationManager;
 class ArduinoComponent;
 class ArduinoSerial;
 
@@ -13,18 +14,16 @@ public:
 
     void Load(std::string const& portName);
     void Unload();
-    void Loop();
+    void Update();
 
     void DestroyComponents();
 
 private:
     void PrintDataToConsole() const;
 
-    ArduinoSerial* m_serial;
-    std::string m_portName = "";
-
     size_t m_inputComponentCount = 0;
     size_t m_outputComponentCount = 0;
     ArduinoComponent** m_inputComponents = nullptr;
     ArduinoComponent** m_outputComponents = nullptr;
+    ArduinoCommunicationManager* m_arduino;
 };

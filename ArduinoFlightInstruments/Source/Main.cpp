@@ -1,21 +1,35 @@
-// Main.cpp : This file contains the 'main' function. Program execution begins and ends there.
-
-// INFO TO MAKE THIS PROGRAM WORK:
+// INFO TO MAKE THIS PROJECT WORK:
 // https://playground.arduino.cc/Interfacing/CPPWindows/
 // https://docs.microsoft.com/en-us/previous-versions/microsoft-esp/cc526983(v=msdn.10)?redirectedfrom=MSDN
 // https://todbot.com/blog/2006/12/06/arduino-serial-c-code-to-talk-to-arduino/
+// https://github.com/dcs-bios/dcs-bios-arduino-library
 
+
+
+// Add available programs to this list
+#include "Arduino/ArduinoTestProgram.h"
 #include "Core/FlightInstrumentsProgram.h"
+#include "SimConnect/SimConnectTestProgram.h"
+
+
+
+// EDIT HERE! This line selects the program class that will be executed
+#define PROGRAM_CLASS SimConnectTestProgram
+
+
 
 int main()
 {
-    FlightInstrumentsProgram program;
-    program.Load();
-    program.PostLoad();
-    while (program.IsRunning())
+    IProgram* program = new PROGRAM_CLASS();
+
+    program->Begin();
+    while (program->IsRunning())
     {
-        program.Loop();
+        program->Update();
     }
-    program.PreUnload();
-    program.Unload();
+    program->End();
+
+    int const exitCode = program->GetExitCode();
+    delete program;
+    return exitCode;
 }
